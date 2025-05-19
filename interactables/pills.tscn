@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddv453fjt6w6s"]
+
+[ext_resource type="Script" uid="uid://dg7gq6idqr8oc" path="res://interactables/pills.gd" id="1_ghtad"]
+[ext_resource type="Texture2D" uid="uid://bp11gxytnx3f1" path="res://resources/CosmicLilac_Tiles.png" id="2_jwrjo"]
+[ext_resource type="Texture2D" uid="uid://bsbhnxu4bin2p" path="res://resources/body_light.png" id="3_ghtad"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pdlni"]
+radius = 23.1948
+
+[node name="Pills" type="Node2D"]
+script = ExtResource("1_ghtad")
+scannable_name = "pills"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_jwrjo")
+region_enabled = true
+region_rect = Rect2(160, 112, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_pdlni")
+
+[node name="Highlight" type="PointLight2D" parent="."]
+position = Vector2(-9, -11)
+rotation = 1.5708
+scale = Vector2(0.0485491, 0.0485491)
+color = Color(0, 1, 1, 0.560784)
+energy = 0.0
+texture = ExtResource("3_ghtad")
+texture_scale = 0.6

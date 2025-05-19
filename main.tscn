@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://wgyn7jo52uhh"]
+
+[ext_resource type="PackedScene" uid="uid://dcejp2ucvimr" path="res://map/map.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://c1yh6i60c6li3" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://fhehodhgqblx" path="res://player/player.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dp54nqbw0enmy" path="res://ui/terminal.tscn" id="3_h2yge"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_1bvp3")
+
+[node name="Map" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="Player" parent="." instance=ExtResource("2_h2yge")]
+position = Vector2(47, 79)
+
+[node name="Terminal" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_h2yge")]
+visible = false
+player = NodePath("../Player")

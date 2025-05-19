@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=3 uid="uid://dp54nqbw0enmy"]
+
+[ext_resource type="Script" uid="uid://b7bgdn7is7bn6" path="res://ui/terminal.gd" id="1_sxuvd"]
+[ext_resource type="Theme" uid="uid://dmr0lq7fmt34j" path="res://ui/terminal.tres" id="2_7d6gb"]
+
+[node name="Terminal" type="Window"]
+title = "Portable Terminal"
+initial_position = 1
+size = Vector2i(1000, 600)
+theme = ExtResource("2_7d6gb")
+script = ExtResource("1_sxuvd")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 990.0
+offset_bottom = 590.0
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Terminal" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_tab_index = 0
+
+[node name="StatusTextLabel" type="RichTextLabel" parent="VBoxContainer/TabContainer/Terminal"]
+layout_mode = 2
+bbcode_enabled = true
+fit_content = true
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+
+[node name="OutputTextLabel" type="RichTextLabel" parent="VBoxContainer/TabContainer/Terminal"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "This failed mining expedition stopped making contact a few days ago, and you've been sent in to investigate why.
+
+Use your trusty portable terminal to investigate the station and determine what happened.
+
+When you're ready to submit your findings back to home base, use the other tab (\"Investigation\") to do so.
+
+
+
+Type [b]help[/b] to see available commands"
+scroll_following = true
+vertical_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Terminal"]
+layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/TabContainer/Terminal/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+text = "$"
+fit_content = true
+
+[node name="InputLineEdit" type="LineEdit" parent="VBoxContainer/TabContainer/Terminal/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+keep_editing_on_text_submit = true
+flat = true
+
+[node name="Investigation" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+alignment = 1
+metadata/_tab_index = 1
+
+[node name="Finished" type="Label" parent="VBoxContainer/TabContainer/Investigation"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/TabContainer/Investigation"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InvestigationSelectors" type="VBoxContainer" parent="VBoxContainer/TabContainer/Investigation"]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/TabContainer/Investigation"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/TabContainer/Investigation"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Submit Investigation"

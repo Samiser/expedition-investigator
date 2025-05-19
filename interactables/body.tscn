@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7a4ihr2wpg6k"]
+
+[ext_resource type="Script" uid="uid://dvsvqfqpljs23" path="res://interactables/body.gd" id="1_2i6y6"]
+[ext_resource type="Texture2D" uid="uid://d1yaydkv7ijci" path="res://resources/CosmicLilac_AnimatedSpriteSheet.png" id="2_in4ii"]
+[ext_resource type="Texture2D" uid="uid://bsbhnxu4bin2p" path="res://resources/body_light.png" id="3_ao0yk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tg1dk"]
+radius = 23.0868
+
+[node name="Body" type="Node2D" groups=["body"]]
+script = ExtResource("1_2i6y6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tg1dk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_in4ii")
+region_enabled = true
+region_rect = Rect2(64, 96, 16, 16)
+
+[node name="Highlight" type="PointLight2D" parent="."]
+position = Vector2(3, 8)
+scale = Vector2(0.0849673, 0.0849673)
+color = Color(0, 1, 1, 1)
+energy = 0.0
+texture = ExtResource("3_ao0yk")
